@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="17.397" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="To verify the Sign-up page functionality of the application" name="Check the response when providing an email address already registered" time="17.207">
+<system-out><![CDATA[
+Given User should launch the portal by enter the url........................passed
+And User should click on the Sign-up for free trial button..................passed
+And Check the response when providing an email address already registered...passed
+]]></system-out>
+</testcase>
+</testsuite>
