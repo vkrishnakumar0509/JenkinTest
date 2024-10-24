@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    
+    triggers {
+        cron('H 3 * * 1-5')  // Schedule trigger for 3 AM on weekdays
+    }
+    
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+    }
+    
+    post {
+        always {
+            cucumber 'target/cucumber-reports/*.json'  // Publish Cucumber reports
+        }
+        success {
+            mail to: 'vkrishnakumar0509@gmail.com', 
+                 subject: 'Cucumber Tests Successful', 
+                 body: 'The scheduled Cucumber tests completed successfully.'
+        }
+        failure {
+            mail to: 'vkrishnakumar0509@gmail.com', 
+                 subject: 'Cucumber Tests Failed', 
+                 body: 'The scheduled Cucumber tests failed.'
+        }
+    }
+}
