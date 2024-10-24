@@ -16,7 +16,7 @@ public class BaseMethods {
 	public static Properties props;
 	
 	public static void launchbrowser() {
-		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\KrishnakumarV\\Downloads\\chromedriver-win64 (1)\\chromedriver-win64\\chromedriver.exe");
 		driver=new ChromeDriver();
 	}
 	
